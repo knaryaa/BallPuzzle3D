@@ -3,6 +3,8 @@ using DG.Tweening;
 
 public class BallController : MonoBehaviour
 {
+    LevelComplete levelComplete;
+    
     public float moveSpeed = 5f; // Adjust the speed as needed
     private Rigidbody rb;
     public bool isMoving = false;

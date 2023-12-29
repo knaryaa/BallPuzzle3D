@@ -5,23 +5,27 @@ public class LevelManager : MonoBehaviour
 {
     public Levels[] levels;
     public int levelNumber;
+    //public int i;
     
     public void Start()
     {
         LoadLevel();
     }
 
-    private void LoadLevel()
+    public void LoadLevel()
     {
         int x = levelNumber - 1;
-
-        if (levels[x].obstacle)
+        int y = 0;
+        
+        for (int i = 0; i < levels[x].obstacle.Length; i++)
         {
-            for (int i = 0; i < levels[x].obstacleLocation.Count; i++)
+            if (levels[x].obstacle[i])
             {
-                Instantiate(levels[x].obstacle, levels[x].obstacleLocation[i], Quaternion.identity, transform);
+                Instantiate(levels[x].obstacle[i], levels[x].obstacleLocation[y], Quaternion.Euler(levels[x].obstacleRotation[y]), transform);
+                y++;
             }
         }
+        
 
         if (levels[x].diamond)
         {

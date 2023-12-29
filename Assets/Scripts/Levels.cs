@@ -6,8 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Tile", menuName = "Tile")]
 public class Levels : SerializedScriptableObject
 {
-    public GameObject obstacle;
+    public GameObject[] obstacle;
     public List<Vector3> obstacleLocation;
+    public List<Vector3> obstacleRotation;
 
     public GameObject diamond;
     public List<Vector3> diamondLocation;
@@ -20,4 +21,6 @@ public class Levels : SerializedScriptableObject
 
     public GameObject ball;
     public Vector3 ballLocation;
+
+    
 }

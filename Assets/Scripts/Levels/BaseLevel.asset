@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3604109f1c2dfeb40a5cb15718b8f54c, type: 3}
+  m_Name: BaseLevel
+  m_EditorClassIdentifier: 
+  obstacle: {fileID: 3290761499136665032, guid: a0d1b6b8758278b458c8d92b82c45e03, type: 3}
+  obstacleLocation: []
+  diamond: {fileID: 7588200626282732244, guid: 9a846f7843e529d4da945d0a70b92af7, type: 3}
+  diamondLocation: []
+  start: {fileID: 3290761499136665032, guid: c0ea77c78e776eb4b8cbed9af30967f9, type: 3}
+  startLocation: {x: -2, y: -0.49, z: -6}
+  finish: {fileID: 3290761499136665032, guid: d21643b2d692abb41b2cf7a2ecfa118c, type: 3}
+  finishLocation: {x: 2, y: -0.49, z: 7}
+  ball: {fileID: 3405310418225270031, guid: 15c18c74cffc4fa4fb7868ae2c5f5067, type: 3}
+  ballLocation: {x: -2, y: 0, z: -6}

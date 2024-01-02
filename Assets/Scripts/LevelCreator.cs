@@ -21,8 +21,8 @@ public class LevelCreator : MonoBehaviour
         currentLevel.obstacleLocation.Clear();
         currentLevel.obstacleRotation.Clear();
         currentLevel.diamondLocation.Clear();
+        
 
-        int x = 0;
         
         var childCount = transform.childCount;
         for (int i = 0; i < childCount; i++)
@@ -33,7 +33,7 @@ public class LevelCreator : MonoBehaviour
             {
                 currentLevel.obstacleLocation.Add(child.transform.position);
                 currentLevel.obstacleRotation.Add(child.transform.localEulerAngles);
-                x++;
+
             }
             if (child.CompareTag("Diamond"))
             {

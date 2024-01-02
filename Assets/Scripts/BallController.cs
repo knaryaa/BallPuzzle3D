@@ -3,7 +3,6 @@ using DG.Tweening;
 
 public class BallController : MonoBehaviour
 {
-    LevelComplete levelComplete;
     
     public float moveSpeed = 5f; // Adjust the speed as needed
     private Rigidbody rb;
@@ -15,6 +14,7 @@ public class BallController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         originalScale = gameObject.transform.localScale;
+
     }
 
     void FixedUpdate()
@@ -47,10 +47,19 @@ public class BallController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Diamond"))
         {
+            SoundManager.instance.PlaySoundEffect(0);
             diamondCount++;
             Destroy(collision.gameObject);
         }
+
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            SoundManager.instance.PlaySoundEffect(1);
+            Debug.Log("Level Completed!");
+            this.enabled = false;
+        }
     }
+    
 
     private void OnCollisionEnter(Collision collision)
     {

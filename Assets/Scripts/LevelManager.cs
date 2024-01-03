@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -5,11 +6,22 @@ public class LevelManager : MonoBehaviour
 {
     public Levels[] levels;
     public int levelNumber;
+    public int actNumber;
+
+    [SerializeField] TextMeshProUGUI levelTxt;
     //public int i;
     
     public void Start()
     {
+        actNumber = 1;
         LoadLevel();
+        SetLevelText();
+    }
+
+    private void SetLevelText()
+    {
+        levelTxt.text = "LEVEL     "+actNumber+" - " + levelNumber;
+        
     }
 
     public void LoadLevel()

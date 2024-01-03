@@ -1,5 +1,8 @@
+using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using TMPro;
+using Unity.VisualScripting;
 
 public class BallController : MonoBehaviour
 {
@@ -9,12 +12,16 @@ public class BallController : MonoBehaviour
     public bool isMoving = false;
     public int diamondCount;
     public Vector3 originalScale;
+    
+    public Vector3 diamondMoveLocation;
+    [SerializeField] TextMeshProUGUI diamondTxt;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         originalScale = gameObject.transform.localScale;
-
+        diamondTxt.text = diamondCount.ToString();
+        diamondMoveLocation = new Vector3(9.5f, 0.7f, 17f);
     }
 
     void FixedUpdate()
@@ -49,17 +56,23 @@ public class BallController : MonoBehaviour
         {
             SoundManager.instance.PlaySoundEffect(0);
             diamondCount++;
-            Destroy(collision.gameObject);
+            
+            collision.gameObject.transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0.1f)
+                .OnComplete(()=>collision.gameObject.transform.DOScale(new Vector3(0.3f, 0.3f, 0.3f), 0.9f));
+            
+            collision.gameObject.transform.DOMove(diamondMoveLocation, 1f)
+                .OnComplete(()=>diamondTxt.text = diamondCount+"");
+
+            collision.gameObject.transform.DOJump(diamondMoveLocation, 0, 0, 1f)
+                .OnComplete(()=>collision.gameObject.SetActive(false));
         }
 
         if (collision.gameObject.CompareTag("Finish"))
         {
             SoundManager.instance.PlaySoundEffect(1);
-            Debug.Log("Level Completed!");
             this.enabled = false;
         }
     }
-    
 
     private void OnCollisionEnter(Collision collision)
     {

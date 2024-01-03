@@ -22,7 +22,6 @@ public class LevelCreator : MonoBehaviour
         currentLevel.obstacleRotation.Clear();
         currentLevel.diamondLocation.Clear();
         
-
         
         var childCount = transform.childCount;
         for (int i = 0; i < childCount; i++)

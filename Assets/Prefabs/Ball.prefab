@@ -5082,11 +5082,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e91b39a273e162e4eadf36587c732f7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diamondCollect: {fileID: 0}
   moveSpeed: 15
   isMoving: 0
   diamondCount: 0
   originalScale: {x: 0, y: 0, z: 0}
+  diamondMoveLocation: {x: 0, y: 0, z: 0}
+  diamondTxt: {fileID: 0}
 --- !u!135 &2318371096035054225
 SphereCollider:
   m_ObjectHideFlags: 0

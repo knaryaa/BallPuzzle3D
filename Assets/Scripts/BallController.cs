@@ -2,25 +2,28 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 using TMPro;
-using Unity.VisualScripting;
 
 public class BallController : MonoBehaviour
 {
+    private UIManager _UIManager;
     
     public float moveSpeed = 5f; // Adjust the speed as needed
     private Rigidbody rb;
     public bool isMoving = false;
-    public int diamondCount;
     public Vector3 originalScale;
-    
     public Vector3 diamondMoveLocation;
-    [SerializeField] TextMeshProUGUI diamondTxt;
+    public int diamondCount;
+    
+    public TextMeshProUGUI diamondTxt;
+    
 
     void Start()
     {
+        _UIManager = GetComponent<UIManager>();
         rb = GetComponent<Rigidbody>();
+        
         originalScale = gameObject.transform.localScale;
-        diamondTxt.text = diamondCount.ToString();
+        
         diamondMoveLocation = new Vector3(9.5f, 0.7f, 17f);
     }
 
@@ -61,7 +64,7 @@ public class BallController : MonoBehaviour
                 .OnComplete(()=>collision.gameObject.transform.DOScale(new Vector3(0.3f, 0.3f, 0.3f), 0.9f));
             
             collision.gameObject.transform.DOMove(diamondMoveLocation, 1f)
-                .OnComplete(()=>diamondTxt.text = diamondCount+"");
+                .OnComplete(()=>diamondTxt.text = diamondCount.ToString());
 
             collision.gameObject.transform.DOJump(diamondMoveLocation, 0, 0, 1f)
                 .OnComplete(()=>collision.gameObject.SetActive(false));
@@ -70,7 +73,9 @@ public class BallController : MonoBehaviour
         if (collision.gameObject.CompareTag("Finish"))
         {
             SoundManager.instance.PlaySoundEffect(1);
-            this.enabled = false;
+            //_UIManager.LevelFinish();
+            enabled = false;
+
         }
     }
 

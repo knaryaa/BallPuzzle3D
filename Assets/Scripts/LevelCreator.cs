@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -21,6 +23,7 @@ public class LevelCreator : MonoBehaviour
         currentLevel.obstacleLocation.Clear();
         currentLevel.obstacleRotation.Clear();
         currentLevel.diamondLocation.Clear();
+        currentLevel.obstacle.Clear();
         
         
         var childCount = transform.childCount;
@@ -32,6 +35,8 @@ public class LevelCreator : MonoBehaviour
             {
                 currentLevel.obstacleLocation.Add(child.transform.position);
                 currentLevel.obstacleRotation.Add(child.transform.localEulerAngles);
+                currentLevel.obstacle.Add(PrefabUtility.GetCorrespondingObjectFromSource(child.gameObject));
+                   
 
             }
             if (child.CompareTag("Diamond"))
@@ -66,11 +71,13 @@ public class LevelCreator : MonoBehaviour
         
         int y = 0;
         
-        for (int i = 0; i < currentLevel.obstacle.Length; i++)
+        for (int i = 0; i < currentLevel.obstacle.Count; i++)
         {
             if (currentLevel.obstacle[i])
             {
-                Instantiate(currentLevel.obstacle[i], currentLevel.obstacleLocation[y], Quaternion.Euler(currentLevel.obstacleRotation[y]), transform);
+                PrefabUtility.InstantiatePrefab(currentLevel.obstacle[i], transform);
+                currentLevel.obstacle[i].transform.position = currentLevel.obstacleLocation[y];
+                currentLevel.obstacle[i].transform.localEulerAngles = currentLevel.obstacleRotation[y];
                 y++;
             }
         }
@@ -78,25 +85,40 @@ public class LevelCreator : MonoBehaviour
         {
             for (int i = 0; i < currentLevel.diamondLocation.Count; i++)
             {
-                Instantiate(currentLevel.diamond, currentLevel.diamondLocation[i], Quaternion.identity, transform);
+                PrefabUtility.InstantiatePrefab(currentLevel.diamond, transform);
+                currentLevel.diamond.transform.position = currentLevel.diamondLocation[i];
             }
         }
 
         if (currentLevel.start)
         {
-            Instantiate(currentLevel.start, currentLevel.startLocation, Quaternion.identity, transform);
+            PrefabUtility.InstantiatePrefab(currentLevel.start, transform);
+            currentLevel.start.transform.position = currentLevel.startLocation;
         }
 
         if (currentLevel.finish)
         {
-            Instantiate(currentLevel.finish, currentLevel.finishLocation, Quaternion.identity, transform);
+            PrefabUtility.InstantiatePrefab(currentLevel.finish, transform);
+            currentLevel.finish.transform.position = currentLevel.finishLocation;
         }
 
         if (currentLevel.ball)
         {
-            Instantiate(currentLevel.ball, currentLevel.ballLocation, Quaternion.identity, transform);
+            PrefabUtility.InstantiatePrefab(currentLevel.ball, transform);
+            currentLevel.ball.transform.position = currentLevel.ballLocation;
         }
         
+    }
+
+    [Button]
+    public void DeleteLevel()
+    {
+        int childs = transform.childCount;
+
+        for (int i = childs - 1; i > -1; i--)
+        {
+            DestroyImmediate(transform.GetChild(i).gameObject);
+        }
     }
     
 }

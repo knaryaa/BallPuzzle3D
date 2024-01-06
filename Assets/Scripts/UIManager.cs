@@ -12,10 +12,14 @@ public class UIManager : MonoBehaviour
         public GameObject mainMenu;
         public GameObject startLevel;
         public GameObject GameUI;
+        public GameObject levelComplete;
+
+        public LevelManager levelManager;
     
     
         private void Start()
         {
+            levelManager = GetComponent<LevelManager>();
             if (pausePanel)
             {
                 pausePanel.SetActive(false);
@@ -71,8 +75,18 @@ public class UIManager : MonoBehaviour
             }
         }
     
-        public void PlayAgainFNC()
+        public void PlayAgain()
         {
             Time.timeScale = 1;
+            
+            
+        }
+
+        public void LevelFinish()
+        {
+            if (levelComplete)
+            {
+                levelComplete.SetActive(true);
+            }
         }
 }

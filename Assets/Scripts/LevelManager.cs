@@ -26,10 +26,11 @@ public class LevelManager : MonoBehaviour
 
     public void LoadLevel()
     {
+        
         int x = levelNumber - 1;
         int y = 0;
         
-        for (int i = 0; i < levels[x].obstacle.Length; i++)
+        for (int i = 0; i < levels[x].obstacle.Count; i++)
         {
             if (levels[x].obstacle[i])
             {
@@ -61,5 +62,6 @@ public class LevelManager : MonoBehaviour
         {
             Instantiate(levels[x].ball, levels[x].ballLocation, Quaternion.identity, transform);
         }
+        
     }
 }

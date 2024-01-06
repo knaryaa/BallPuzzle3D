@@ -31,22 +31,22 @@ MonoBehaviour:
   obstacleLocation:
   - {x: -5, y: 0, z: -6}
   - {x: 5, y: 0, z: -2}
+  - {x: -3, y: 0, z: 4}
   - {x: 10, y: 0, z: 4}
   - {x: 10, y: 0, z: -3}
   - {x: 7, y: 0, z: -7}
-  - {x: -3, y: 0, z: 4}
   obstacleRotation:
   - {x: -0, y: 270, z: 0}
-  - {x: -0, y: 90, z: -0}
   - {x: -0, y: 90, z: 0}
-  - {x: 0, y: 180, z: 0}
-  - {x: 0, y: 180, z: 0}
   - {x: -0, y: 0, z: 0}
+  - {x: -0, y: 90, z: 0}
+  - {x: -0, y: 180, z: 0}
+  - {x: -0, y: 180, z: 0}
   diamond: {fileID: 7588200626282732244, guid: 9a846f7843e529d4da945d0a70b92af7, type: 3}
   diamondLocation:
+  - {x: 4, y: 0.7, z: 3}
   - {x: 6, y: 0.7, z: -2}
   - {x: -4, y: 0.7, z: -6}
-  - {x: 4, y: 0.7, z: 3}
   start: {fileID: 3290761499136665032, guid: c0ea77c78e776eb4b8cbed9af30967f9, type: 3}
   startLocation: {x: -2, y: -0.5, z: -9}
   finish: {fileID: 3290761499136665032, guid: d21643b2d692abb41b2cf7a2ecfa118c, type: 3}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,13 +14,24 @@ public class UIManager : MonoBehaviour
         public GameObject startLevel;
         public GameObject GameUI;
         public GameObject levelComplete;
+        public GameObject levelSelectMenu;
+        
+        private LevelManager levelManager;
+        //public GameManager gameManager;
 
-        public LevelManager levelManager;
-    
-    
+        public Button[] buttons;
+        public GameObject levelButtons;
+
+        private void Awake()
+        {
+            ButtonsToArray();
+            UnlockLevel();
+        }
+
         private void Start()
         {
-            levelManager = GetComponent<LevelManager>();
+            levelManager = FindObjectOfType<LevelManager>();
+            //gameManager = FindObjectOfType<GameManager>();
             if (pausePanel)
             {
                 pausePanel.SetActive(false);
@@ -69,17 +81,30 @@ public class UIManager : MonoBehaviour
         {
             if (startLevel)
             {
-                startLevel.SetActive(true);
+                //startLevel.SetActive(true);
+                //GameUI.SetActive(true);
                 mainMenu.SetActive(false);
-                GameUI.SetActive(true);
+                levelSelectMenu.SetActive(true);
             }
         }
     
         public void PlayAgain()
         {
             Time.timeScale = 1;
+            levelManager.LoadLevel();
+            pausePanel.SetActive(false);
+            levelComplete.SetActive(false);
+        }
+
+        public void HomeButton()
+        {
+            Time.timeScale = 1;
+            pausePanel.SetActive(false);
+            GameUI.SetActive(false);
+            levelComplete.SetActive(false);
+            mainMenu.SetActive(true);
             
-            
+            levelManager.DeleteLevel();
         }
 
         public void LevelFinish()
@@ -87,6 +112,48 @@ public class UIManager : MonoBehaviour
             if (levelComplete)
             {
                 levelComplete.SetActive(true);
+            }
+        }
+
+        public void NextLevelButton()
+        {
+            levelComplete.SetActive(false);
+            levelManager.levelNumber++;
+            levelManager.LoadLevel();
+        }
+        
+        private void UnlockLevel()
+        {
+            int unlockedlevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                buttons[i].interactable = false;
+                buttons[i].transform.GetChild(0).localScale = new Vector3(0,0,0);
+                buttons[i].transform.GetChild(1).localScale = new Vector3(1,1,1);
+            }
+
+            for (int i = 0; i < unlockedlevel; i++)
+            {
+                buttons[i].interactable = true;
+                buttons[i].transform.GetChild(1).localScale = new Vector3(0,0,0);
+                buttons[i].transform.GetChild(0).localScale = new Vector3(1,1,1);
+            }
+        }
+        public void LevelSelect(int level)
+        {
+            levelManager.levelNumber = level;
+            levelManager.LoadLevel();
+            //levelManager.SetLevelText();
+            GameUI.SetActive(true);
+        }
+
+        void ButtonsToArray()
+        {
+            int childCount = levelButtons.transform.childCount;
+            buttons = new Button[childCount];
+            for (int i = 0; i < childCount; i++)
+            {
+                buttons[i] = levelButtons.transform.GetChild(i).gameObject.GetComponent<Button>();
             }
         }
 }

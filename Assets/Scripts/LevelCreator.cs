@@ -12,7 +12,7 @@ public class LevelCreator : MonoBehaviour
 
     private void Awake()
     {
-        this.gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     [Button]
@@ -62,6 +62,7 @@ public class LevelCreator : MonoBehaviour
     [Button]
     public void LoadLevel()
     {
+        //Her şeyi siler
         int childs = transform.childCount;
 
         for (int i = childs - 1; i > -1; i--)
@@ -69,8 +70,8 @@ public class LevelCreator : MonoBehaviour
             DestroyImmediate(transform.GetChild(i).gameObject);
         }
         
+        //Sahnedeki objeleri kaydeder
         int y = 0;
-        
         for (int i = 0; i < currentLevel.obstacle.Count; i++)
         {
             if (currentLevel.obstacle[i])

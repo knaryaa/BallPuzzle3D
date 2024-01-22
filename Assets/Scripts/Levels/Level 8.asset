@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3604109f1c2dfeb40a5cb15718b8f54c, type: 3}
-  m_Name: Level 1
+  m_Name: Level 8
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -22,19 +22,37 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   obstacle:
+  - {fileID: 2861747155621570334, guid: 25054da64ffbefe42b2f9fe73bf3c1cf, type: 3}
+  - {fileID: 2861747155621570334, guid: 25054da64ffbefe42b2f9fe73bf3c1cf, type: 3}
+  - {fileID: 5404266924905999704, guid: 3e416f335e87f3b41a19fb4ae81ade6c, type: 3}
+  - {fileID: 6626468226694828210, guid: 644b988988513d84ba352b4019643aa3, type: 3}
+  - {fileID: 6626468226694828210, guid: 644b988988513d84ba352b4019643aa3, type: 3}
   - {fileID: 6626468226694828210, guid: 644b988988513d84ba352b4019643aa3, type: 3}
   - {fileID: 6626468226694828210, guid: 644b988988513d84ba352b4019643aa3, type: 3}
   obstacleLocation:
-  - {x: -3, y: 0, z: 4}
+  - {x: -7, y: 0, z: 0}
+  - {x: 3, y: 0, z: -8}
+  - {x: 4, y: 0, z: -2}
   - {x: 7, y: 0, z: 2}
+  - {x: 7, y: 0, z: -1}
+  - {x: -3, y: 0, z: 4}
+  - {x: -3, y: 0, z: -1}
   obstacleRotation:
+  - {x: -0, y: 270, z: 0}
+  - {x: -0, y: 180, z: 0}
+  - {x: -0, y: 90, z: 0}
+  - {x: -0, y: 180, z: 0}
+  - {x: -0, y: 180, z: 0}
   - {x: -0, y: 0, z: 0}
-  - {x: -0, y: 180, z: -0}
+  - {x: -0, y: 0, z: 0}
   diamond: {fileID: 7588200626282732244, guid: 9a846f7843e529d4da945d0a70b92af7, type: 3}
   diamondLocation:
-  - {x: 2, y: 0.7, z: 3}
-  - {x: 6, y: 0.7, z: 8}
   - {x: -2, y: 0.7, z: -2}
+  - {x: -6, y: 0.7, z: 0}
+  - {x: 0, y: 0.7, z: 3}
+  - {x: 0, y: 0.7, z: 2}
+  - {x: 0, y: 0.7, z: 1}
+  - {x: 0, y: 0.7, z: 0}
   start: {fileID: 3290761499136665032, guid: c0ea77c78e776eb4b8cbed9af30967f9, type: 3}
   startLocation: {x: -2, y: -0.5, z: -9}
   finish: {fileID: 3290761499136665032, guid: d21643b2d692abb41b2cf7a2ecfa118c, type: 3}

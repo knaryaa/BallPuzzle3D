@@ -22,49 +22,25 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   obstacle:
-  - {fileID: 3572221502760966870, guid: e85c9407c88906849b962397d21bd7b2, type: 3}
-  - {fileID: 3572221502760966870, guid: e85c9407c88906849b962397d21bd7b2, type: 3}
-  - {fileID: 3572221502760966870, guid: e85c9407c88906849b962397d21bd7b2, type: 3}
-  - {fileID: 3572221502760966870, guid: e85c9407c88906849b962397d21bd7b2, type: 3}
-  - {fileID: 3572221502760966870, guid: e85c9407c88906849b962397d21bd7b2, type: 3}
-  - {fileID: 3572221502760966870, guid: e85c9407c88906849b962397d21bd7b2, type: 3}
-  - {fileID: 3572221502760966870, guid: e85c9407c88906849b962397d21bd7b2, type: 3}
-  - {fileID: 3572221502760966870, guid: e85c9407c88906849b962397d21bd7b2, type: 3}
-  - {fileID: 8184198238763306240, guid: bebb64fa154a0534e82348c3d97c8b0e, type: 3}
-  - {fileID: 8184198238763306240, guid: bebb64fa154a0534e82348c3d97c8b0e, type: 3}
-  - {fileID: 8184198238763306240, guid: bebb64fa154a0534e82348c3d97c8b0e, type: 3}
-  - {fileID: 8184198238763306240, guid: bebb64fa154a0534e82348c3d97c8b0e, type: 3}
+  - {fileID: 6626468226694828210, guid: 644b988988513d84ba352b4019643aa3, type: 3}
+  - {fileID: 6626468226694828210, guid: 644b988988513d84ba352b4019643aa3, type: 3}
+  - {fileID: 6626468226694828210, guid: 644b988988513d84ba352b4019643aa3, type: 3}
+  - {fileID: 6626468226694828210, guid: 644b988988513d84ba352b4019643aa3, type: 3}
   obstacleLocation:
-  - {x: -3, y: 0, z: 6}
-  - {x: 9, y: 0, z: 7}
-  - {x: -2, y: 0, z: 7}
-  - {x: 6, y: 0, z: -1}
-  - {x: 10, y: 0, z: 6}
-  - {x: 10, y: 0, z: 0}
-  - {x: 5, y: 0, z: 0}
-  - {x: 9, y: 0, z: -1}
-  - {x: 5, y: 0, z: -1}
   - {x: -3, y: 0, z: 7}
-  - {x: 10, y: 0, z: 7}
+  - {x: 5, y: 0, z: -1}
   - {x: 10, y: 0, z: -1}
+  - {x: 10, y: 0, z: 7}
   obstacleRotation:
-  - {x: -0, y: 180, z: 0}
-  - {x: -0, y: 270, z: 0}
-  - {x: -0, y: 90, z: 0}
-  - {x: -0, y: 90, z: 0}
-  - {x: -0, y: 180, z: 0}
-  - {x: -0, y: 0, z: 0}
   - {x: -0, y: 0, z: 0}
   - {x: -0, y: 270, z: 0}
-  - {x: -0, y: 270, z: 0}
-  - {x: -0, y: 0, z: 0}
-  - {x: -0, y: 90, z: 0}
   - {x: -0, y: 180, z: 0}
+  - {x: -0, y: 90, z: 0}
   diamond: {fileID: 7588200626282732244, guid: 9a846f7843e529d4da945d0a70b92af7, type: 3}
   diamondLocation:
-  - {x: 9, y: 0.7, z: 3}
   - {x: -2, y: 0.7, z: 0}
   - {x: 4, y: 0.7, z: 6}
+  - {x: 9, y: 0.7, z: 3}
   start: {fileID: 3290761499136665032, guid: c0ea77c78e776eb4b8cbed9af30967f9, type: 3}
   startLocation: {x: -2, y: -0.5, z: -9}
   finish: {fileID: 3290761499136665032, guid: d21643b2d692abb41b2cf7a2ecfa118c, type: 3}

@@ -8,24 +8,35 @@ public class LevelManager : MonoBehaviour
     public int levelNumber;
     public int actNumber;
 
+    public GameManager gameManager;
+
     [SerializeField] TextMeshProUGUI levelTxt;
     //public int i;
     
     public void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         actNumber = 1;
-        LoadLevel();
-        SetLevelText();
+        //LoadLevel();
+        //SetLevelText();
     }
 
-    private void SetLevelText()
+    public void SetLevelText()
     {
-        levelTxt.text = "LEVEL     "+actNumber+" - " + levelNumber;
-        
+        levelTxt.text = "LEVEL"+System.Environment.NewLine+actNumber+" - " + levelNumber;
     }
 
     public void LoadLevel()
     {
+        SetLevelText();
+        gameManager.DiamondCountReset();
+        
+        int childs = transform.childCount;
+
+        for (int i = childs - 1; i > -1; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
         
         int x = levelNumber - 1;
         int y = 0;
@@ -63,5 +74,15 @@ public class LevelManager : MonoBehaviour
             Instantiate(levels[x].ball, levels[x].ballLocation, Quaternion.identity, transform);
         }
         
+    }
+
+    public void DeleteLevel()
+    {
+        int childs = transform.childCount;
+
+        for (int i = childs - 1; i > -1; i--)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
     }
 }

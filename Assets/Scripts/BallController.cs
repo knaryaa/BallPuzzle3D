@@ -5,7 +5,8 @@ using TMPro;
 
 public class BallController : MonoBehaviour
 {
-    private UIManager _UIManager;
+    public  UIManager _UIManager;
+    public LevelManager levelManager;
     
     public float moveSpeed = 5f; // Adjust the speed as needed
     private Rigidbody rb;
@@ -14,12 +15,14 @@ public class BallController : MonoBehaviour
     public Vector3 diamondMoveLocation;
     public int diamondCount;
     
+    
     public TextMeshProUGUI diamondTxt;
     
 
     void Start()
     {
-        _UIManager = GetComponent<UIManager>();
+        levelManager = FindObjectOfType<LevelManager>();
+        _UIManager = FindObjectOfType<UIManager>();
         rb = GetComponent<Rigidbody>();
         
         originalScale = gameObject.transform.localScale;
@@ -53,29 +56,30 @@ public class BallController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.gameObject.CompareTag("Diamond"))
+        if (collider.gameObject.CompareTag("Diamond"))
         {
             SoundManager.instance.PlaySoundEffect(0);
-            diamondCount++;
+            //diamondCount++;
             
-            collision.gameObject.transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0.1f)
-                .OnComplete(()=>collision.gameObject.transform.DOScale(new Vector3(0.3f, 0.3f, 0.3f), 0.9f));
-            
-            collision.gameObject.transform.DOMove(diamondMoveLocation, 1f)
-                .OnComplete(()=>diamondTxt.text = diamondCount.ToString());
+            collider.gameObject.transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0.1f)
+                .OnComplete(()=>collider.gameObject.transform.DOScale(new Vector3(0.3f, 0.3f, 0.3f), 0.9f));
 
-            collision.gameObject.transform.DOJump(diamondMoveLocation, 0, 0, 1f)
-                .OnComplete(()=>collision.gameObject.SetActive(false));
+            collider.gameObject.transform.DOMove(diamondMoveLocation, 1f);
         }
 
-        if (collision.gameObject.CompareTag("Finish"))
+        if (collider.gameObject.CompareTag("Finish"))
         {
             SoundManager.instance.PlaySoundEffect(1);
             //_UIManager.LevelFinish();
             enabled = false;
 
+            int unlockedLevel = levelManager.levelNumber + 1;
+            PlayerPrefs.SetInt("UnlockedLevel", unlockedLevel);
+            PlayerPrefs.Save();
+
+            _UIManager.LevelFinish();
         }
     }
 

@@ -6,8 +6,10 @@ public class LevelManager : MonoBehaviour
 {
     public Levels[] levels;
     public int levelNumber;
+    public int levelUINumber;
     public int actNumber;
 
+    
     public GameManager gameManager;
 
     [SerializeField] TextMeshProUGUI levelTxt;
@@ -16,14 +18,25 @@ public class LevelManager : MonoBehaviour
     public void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        actNumber = 1;
+        //actNumber = 1;
         //LoadLevel();
         //SetLevelText();
     }
 
     public void SetLevelText()
     {
-        levelTxt.text = "LEVEL"+System.Environment.NewLine+actNumber+" - " + levelNumber;
+        levelUINumber = levelNumber;
+        if (levelNumber > 9)
+        {
+            levelUINumber = levelNumber % 9;
+            actNumber = (levelNumber / 9)+1;
+        }
+        if (levelNumber % 9 == 0)
+        {
+            levelUINumber = 9;
+            actNumber = (levelNumber / 9);
+        }
+        levelTxt.text = "LEVEL"+System.Environment.NewLine+actNumber+" - " + levelUINumber;
     }
 
     public void LoadLevel()

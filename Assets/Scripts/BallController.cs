@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using DG.Tweening;
@@ -30,7 +31,21 @@ public class BallController : MonoBehaviour
         diamondMoveLocation = new Vector3(9.5f, 0.7f, 17f);
     }
 
-    void FixedUpdate()
+    void Update()
+    {
+        
+
+        if ( Input.GetKeyDown(KeyCode.C))
+        {
+            int unlockedLevel = levelManager.levelNumber + 1;
+            PlayerPrefs.SetInt("UnlockedLevel", unlockedLevel);
+            PlayerPrefs.Save();
+
+            _UIManager.LevelFinish();
+        }
+    }
+
+    private void FixedUpdate()
     {
         if (!isMoving)
         {

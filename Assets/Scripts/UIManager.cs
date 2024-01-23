@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,11 +17,13 @@ public class UIManager : MonoBehaviour
         public GameObject levelComplete;
         public GameObject levelSelectMenu;
         
+        //public RectTransform[] actMenu;
+        
         private LevelManager levelManager;
         //public GameManager gameManager;
 
         public Button[] buttons;
-        public GameObject levelButtons;
+        public GameObject[] levelButtons;
 
         private void Awake()
         {
@@ -38,7 +41,7 @@ public class UIManager : MonoBehaviour
             }
         }
     
-        private void Update()
+        private void FixedUpdate()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -125,35 +128,39 @@ public class UIManager : MonoBehaviour
         private void UnlockLevel()
         {
             int unlockedlevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+            unlockedlevel = Mathf.Clamp(unlockedlevel, 0, buttons.Length);
             for (int i = 0; i < buttons.Length; i++)
             {
                 buttons[i].interactable = false;
                 buttons[i].transform.GetChild(0).localScale = new Vector3(0,0,0);
                 buttons[i].transform.GetChild(1).localScale = new Vector3(1,1,1);
             }
-
             for (int i = 0; i < unlockedlevel; i++)
             {
                 buttons[i].interactable = true;
-                buttons[i].transform.GetChild(1).localScale = new Vector3(0,0,0);
-                buttons[i].transform.GetChild(0).localScale = new Vector3(1,1,1);
+                buttons[i].transform.GetChild(0).localScale = new Vector3(1, 1, 1);
+                buttons[i].transform.GetChild(1).localScale = new Vector3(0, 0, 0);
             }
         }
         public void LevelSelect(int level)
         {
             levelManager.levelNumber = level;
             levelManager.LoadLevel();
-            //levelManager.SetLevelText();
             GameUI.SetActive(true);
         }
 
         void ButtonsToArray()
         {
-            int childCount = levelButtons.transform.childCount;
-            buttons = new Button[childCount];
-            for (int i = 0; i < childCount; i++)
+            buttons = new Button[levelButtons.Length*levelButtons[0].transform.childCount];
+            
+            int y =0;
+            for (int i = 0; i < levelButtons.Length; i++)
             {
-                buttons[i] = levelButtons.transform.GetChild(i).gameObject.GetComponent<Button>();
+                for (int x = 0; x < levelButtons[i].transform.childCount; x++)
+                {
+                    buttons[y] = levelButtons[i].transform.GetChild(x).gameObject.GetComponent<Button>();
+                    y++;
+                }
             }
         }
 }

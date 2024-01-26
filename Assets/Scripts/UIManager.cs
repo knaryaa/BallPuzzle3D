@@ -16,6 +16,8 @@ public class UIManager : MonoBehaviour
         public GameObject GameUI;
         public GameObject levelComplete;
         public GameObject levelSelectMenu;
+
+        public float nextLevelTimer = 0;
         
         //public RectTransform[] actMenu;
         
@@ -40,7 +42,15 @@ public class UIManager : MonoBehaviour
                 pausePanel.SetActive(false);
             }
         }
-    
+
+        private void Update()
+        {
+            if (nextLevelTimer <= 3f && (levelComplete.gameObject.activeSelf || pausePanel.gameObject.activeSelf))
+            {
+                nextLevelTimer += Time.fixedDeltaTime;
+            }
+        }
+
         private void FixedUpdate()
         {
             if (Input.GetKeyDown(KeyCode.Escape))
@@ -69,6 +79,7 @@ public class UIManager : MonoBehaviour
             {
                 optionsPanel.SetActive(false);
                 mainMenu.SetActive(true);
+                nextLevelTimer = 0f;
             }
         }
         public void OptionsPanelOn()
@@ -93,21 +104,32 @@ public class UIManager : MonoBehaviour
     
         public void PlayAgain()
         {
-            Time.timeScale = 1;
-            levelManager.LoadLevel();
-            pausePanel.SetActive(false);
-            levelComplete.SetActive(false);
+            if (nextLevelTimer >= 3f)
+            {
+                Time.timeScale = 1;
+                levelManager.LoadLevel();
+                pausePanel.SetActive(false);
+                levelComplete.SetActive(false);
+                
+                nextLevelTimer = 0f;
+            }
         }
 
         public void HomeButton()
         {
-            Time.timeScale = 1;
-            pausePanel.SetActive(false);
-            GameUI.SetActive(false);
-            levelComplete.SetActive(false);
-            mainMenu.SetActive(true);
+            if (nextLevelTimer >= 3f)
+            {
+                Time.timeScale = 1;
+                pausePanel.SetActive(false);
+                GameUI.SetActive(false);
+                levelComplete.SetActive(false);
+                mainMenu.SetActive(true);
             
-            levelManager.DeleteLevel();
+                levelManager.DeleteLevel();
+                
+                nextLevelTimer = 0f;
+            }
+            
         }
 
         public void LevelFinish()
@@ -120,9 +142,14 @@ public class UIManager : MonoBehaviour
 
         public void NextLevelButton()
         {
-            levelComplete.SetActive(false);
-            levelManager.levelNumber++;
-            levelManager.LoadLevel();
+            if (nextLevelTimer >= 3f)
+            {
+                levelComplete.SetActive(false);
+                levelManager.levelNumber++;
+                levelManager.LoadLevel();
+                nextLevelTimer = 0f;
+            }
+            
         }
         
         private void UnlockLevel()

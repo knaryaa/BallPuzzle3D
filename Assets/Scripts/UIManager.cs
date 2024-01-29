@@ -1,8 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -126,10 +123,16 @@ public class UIManager : MonoBehaviour
                 mainMenu.SetActive(true);
             
                 levelManager.DeleteLevel();
-                
+                SceneManager.LoadScene(0);
                 nextLevelTimer = 0f;
             }
             
+        }
+
+        public void CloseButton()
+        {
+            levelSelectMenu.SetActive(false);
+            mainMenu.SetActive(true);
         }
 
         public void LevelFinish()

@@ -74,6 +74,7 @@ public class BallController : MonoBehaviour
             rb.velocity = moveVelocity;
             if (moveDirection != Vector3.zero)
             {
+                
                 pressTimer = 0;
             }
         }
@@ -113,7 +114,7 @@ public class BallController : MonoBehaviour
         {
             //rb.velocity = Vector3.zero;
             
-            gameObject.transform.DOScale(originalScale, 0.4f);
+            gameObject.transform.DOScale(originalScale, 0.2f);
             isMoving = false;
             pressTimer = 0;
         }
@@ -121,20 +122,20 @@ public class BallController : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle") && isMoving)
+        if (collision.gameObject.CompareTag("Obstacle") && rb.velocity == Vector3.zero)
         {
-            
-            
+            isMoving = false;
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        if (collision.gameObject.CompareTag("Obstacle") && rb.velocity != Vector3.zero)
         {
-            isMoving = true;
             Vector3 decreaseScale = new Vector3(.15f, .15f, .15f);
-            gameObject.transform.DOScale(originalScale-decreaseScale, 0.4f);
+            gameObject.transform.DOScale(originalScale-decreaseScale, 0.2f);
+            isMoving = true;
+            pressTimer = 0;
         }
     }
 }

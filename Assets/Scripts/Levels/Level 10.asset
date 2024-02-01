@@ -23,18 +23,22 @@ MonoBehaviour:
     SerializationNodes: []
   obstacle:
   - {fileID: 6626468226694828210, guid: 0acca7c1d5f827348a4f8f82a91faafd, type: 3}
-  - {fileID: 6626468226694828210, guid: 0acca7c1d5f827348a4f8f82a91faafd, type: 3}
+  - {fileID: 788017001211775504, guid: e7b42169fddc12c4a817c41f27c46ca3, type: 3}
   obstacleLocation:
-  - {x: 7, y: 0, z: 2}
   - {x: -3, y: 0, z: 4}
+  - {x: 7, y: 0, z: 2}
   obstacleRotation:
-  - {x: -0, y: 180, z: 0}
   - {x: -0, y: 0, z: 0}
+  - {x: -0, y: 0, z: 0}
+  rotateButton:
+  - {fileID: 3076970703366941274, guid: 3a9293f9604a59643a09080b33989cf9, type: 3}
+  rotateButtonLocation:
+  - {x: -2, y: -0.45, z: 0}
   diamond: {fileID: 7588200626282732244, guid: 9a846f7843e529d4da945d0a70b92af7, type: 3}
   diamondLocation:
-  - {x: 2, y: 0.7, z: 3}
   - {x: 6, y: 0.7, z: 8}
   - {x: -2, y: 0.7, z: -2}
+  - {x: 2, y: 0.7, z: 3}
   start: {fileID: 3290761499136665032, guid: 1b4456f08c409204a88ebd3ff7424b12, type: 3}
   startLocation: {x: -2, y: -0.5, z: -9}
   finish: {fileID: 3290761499136665032, guid: 02cebf082dc86a341891aae1c21e3980, type: 3}

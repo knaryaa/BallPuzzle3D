@@ -20,10 +20,11 @@ public class LevelCreator : MonoBehaviour
     {
         EditorUtility.SetDirty(currentLevel);
         
+        currentLevel.obstacle.Clear();
         currentLevel.obstacleLocation.Clear();
         currentLevel.obstacleRotation.Clear();
         currentLevel.diamondLocation.Clear();
-        currentLevel.obstacle.Clear();
+        currentLevel.rotateButtonLocation.Clear();
         
         
         var childCount = transform.childCount;
@@ -36,12 +37,14 @@ public class LevelCreator : MonoBehaviour
                 currentLevel.obstacleLocation.Add(child.transform.position);
                 currentLevel.obstacleRotation.Add(child.transform.localEulerAngles);
                 currentLevel.obstacle.Add(PrefabUtility.GetCorrespondingObjectFromSource(child.gameObject));
-                   
-
             }
             if (child.CompareTag("Diamond"))
             {
                 currentLevel.diamondLocation.Add(child.transform.position);
+            }
+            if (child.CompareTag("Button"))
+            {
+                currentLevel.rotateButtonLocation.Add(child.transform.position);
             }
             if (child.CompareTag("Start"))
             {
@@ -62,13 +65,7 @@ public class LevelCreator : MonoBehaviour
     [Button]
     public void LoadLevel()
     {
-        //Her şeyi siler
-        int childs = transform.childCount;
-
-        for (int i = childs - 1; i > -1; i--)
-        {
-            DestroyImmediate(transform.GetChild(i).gameObject);
-        }
+        DeleteLevel();
         
         //Sahnedeki objeleri kaydeder
         int y = 0;
@@ -90,6 +87,19 @@ public class LevelCreator : MonoBehaviour
                 currentLevel.diamond.transform.position = currentLevel.diamondLocation[i];
             }
         }
+
+        y = 0;
+        for (int i = 0; i < currentLevel.rotateButton.Count; i++)
+        {
+            if (currentLevel.rotateButton[i])
+            {
+                PrefabUtility.InstantiatePrefab(currentLevel.rotateButton[i], transform);
+                currentLevel.rotateButton[i].transform.position = currentLevel.rotateButtonLocation[y];
+                y++;
+            }
+        }
+        
+        
 
         if (currentLevel.start)
         {

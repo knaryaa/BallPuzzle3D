@@ -8,6 +8,7 @@ TagManager:
   - Diamond
   - Start
   - Ball
+  - Button
   layers:
   - Default
   - TransparentFX

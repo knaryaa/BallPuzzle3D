@@ -10,6 +10,9 @@ public class Levels : SerializedScriptableObject
     public List<Vector3> obstacleLocation;
     public List<Vector3> obstacleRotation;
 
+    public List<GameObject> rotateButton;
+    public List<Vector3> rotateButtonLocation;
+    
     public GameObject diamond;
     public List<Vector3> diamondLocation;
 

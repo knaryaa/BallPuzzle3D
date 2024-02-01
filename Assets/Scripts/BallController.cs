@@ -99,11 +99,14 @@ public class BallController : MonoBehaviour
             SoundManager.instance.PlaySoundEffect(1);
             //_UIManager.LevelFinish();
             enabled = false;
-
-            int unlockedLevel = levelManager.levelNumber + 1;
-            PlayerPrefs.SetInt("UnlockedLevel", unlockedLevel);
-            PlayerPrefs.Save();
-
+            int unlockedlevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+            if (unlockedlevel < levelManager.levelNumber+1)
+            {
+                int unlockedLevel = levelManager.levelNumber + 1;
+                PlayerPrefs.SetInt("UnlockedLevel", unlockedLevel);
+                PlayerPrefs.Save();
+            }
+            
             _UIManager.LevelFinish();
         }
     }

@@ -1,5 +1,9 @@
+using System.Collections;
+using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -10,9 +14,10 @@ public class UIManager : MonoBehaviour
         public GameObject optionsPanel;
         public GameObject mainMenu;
         public GameObject startLevel;
-        public GameObject GameUI;
+        public GameObject gameUI;
         public GameObject levelComplete;
         public GameObject levelSelectMenu;
+        public GameObject screenFade;
 
         public float nextLevelTimer = 0;
         
@@ -38,6 +43,7 @@ public class UIManager : MonoBehaviour
             {
                 pausePanel.SetActive(false);
             }
+            MenuPanelAnimation(mainMenu);
         }
 
         private void Update()
@@ -63,7 +69,7 @@ public class UIManager : MonoBehaviour
             if (pausePanel)
             {
                 pausePanel.SetActive(isGameStopped);
-    
+                //PanelAnimation(pausePanel);
                 if (SoundManager.instance)
                 {
                     Time.timeScale = (isGameStopped) ? 0 : 1;
@@ -83,8 +89,8 @@ public class UIManager : MonoBehaviour
         {
             if (optionsPanel)
             {
-                optionsPanel.SetActive(true);
                 mainMenu.SetActive(false);
+                PanelAnimation(optionsPanel);
             }
         }
 
@@ -92,10 +98,8 @@ public class UIManager : MonoBehaviour
         {
             if (startLevel)
             {
-                //startLevel.SetActive(true);
-                //GameUI.SetActive(true);
                 mainMenu.SetActive(false);
-                levelSelectMenu.SetActive(true);
+                PanelAnimation(levelSelectMenu);
             }
         }
     
@@ -118,10 +122,12 @@ public class UIManager : MonoBehaviour
             {
                 Time.timeScale = 1;
                 pausePanel.SetActive(false);
-                GameUI.SetActive(false);
+                gameUI.SetActive(false);
                 levelComplete.SetActive(false);
-                mainMenu.SetActive(true);
-            
+                
+                //mainMenu.SetActive(true);
+                
+                
                 levelManager.DeleteLevel();
                 SceneManager.LoadScene(0);
                 nextLevelTimer = 0f;
@@ -139,7 +145,7 @@ public class UIManager : MonoBehaviour
         {
             if (levelComplete)
             {
-                levelComplete.SetActive(true);
+                PanelAnimation(levelComplete);
             }
         }
 
@@ -176,7 +182,12 @@ public class UIManager : MonoBehaviour
         {
             levelManager.levelNumber = level;
             levelManager.LoadLevel();
-            GameUI.SetActive(true);
+            //gameUI.SetActive(true);
+            levelSelectMenu.SetActive(false);
+            
+            screenFade.SetActive(true);
+            PanelAnimation(gameUI);
+            
         }
 
         void ButtonsToArray()
@@ -193,4 +204,27 @@ public class UIManager : MonoBehaviour
                 }
             }
         }
+
+        public void PanelAnimation(GameObject panel)
+        {
+            var childCount = transform.childCount;
+            Transform child = panel.transform.GetChild(0);
+            child.transform.localScale = new Vector3(0, 0, 0);
+            panel.SetActive(true);
+            child.transform.DOScale(new Vector3(1,1,1), 0.5f);
+        }
+
+        public void MenuPanelAnimation(GameObject panel)
+        {
+            var childCount = transform.childCount;
+            Transform child1 = panel.transform.GetChild(0);
+            Transform child2 = panel.transform.GetChild(1);
+            child1.transform.localScale = new Vector3(0, 0, 0);
+            child2.transform.localScale = new Vector3(0, 0, 0);
+            panel.SetActive(true);
+            child1.transform.DOScale(new Vector3(1,1,1), 0.5f);
+            child2.transform.DOScale(new Vector3(1,1,1), 0.5f);
+        }
+        
+        
 }

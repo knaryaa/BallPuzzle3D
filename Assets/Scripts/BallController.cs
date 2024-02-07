@@ -8,6 +8,7 @@ public class BallController : MonoBehaviour
 {
     public  UIManager _UIManager;
     public LevelManager levelManager;
+    public GameManager gameManager;
     
     public float moveSpeed = 5f; // Adjust the speed as needed
     private Rigidbody rb;
@@ -20,6 +21,7 @@ public class BallController : MonoBehaviour
 
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         levelManager = FindObjectOfType<LevelManager>();
         _UIManager = FindObjectOfType<UIManager>();
         rb = GetComponent<Rigidbody>();
@@ -85,7 +87,7 @@ public class BallController : MonoBehaviour
         if (collider.gameObject.CompareTag("Diamond"))
         {
             SoundManager.instance.PlaySoundEffect(0);
-            //diamondCount++;
+            gameManager.diamondCount++;
             
             collider.gameObject.transform.DOScale(new Vector3(0.7f, 0.7f, 0.7f), 0.1f)
                 .OnComplete(()=>collider.gameObject.transform.DOScale(new Vector3(0.3f, 0.3f, 0.3f), 0.9f));

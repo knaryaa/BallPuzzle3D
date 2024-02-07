@@ -1,5 +1,6 @@
 using System.Collections;
 using DG.Tweening;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,7 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public bool isGameStopped = false;
+        public bool isGameStopped = false;
     
         public GameObject pausePanel;
         public GameObject optionsPanel;
@@ -24,10 +25,13 @@ public class UIManager : MonoBehaviour
         //public RectTransform[] actMenu;
         
         private LevelManager levelManager;
-        //public GameManager gameManager;
+        public GameManager gameManager;
 
         public Button[] buttons;
         public GameObject[] levelButtons;
+
+        public TextMeshProUGUI praiseTxt;
+        public TextMeshProUGUI totalDiamondTxt;
 
         private void Awake()
         {
@@ -37,8 +41,8 @@ public class UIManager : MonoBehaviour
 
         private void Start()
         {
+            gameManager = FindObjectOfType<GameManager>();
             levelManager = FindObjectOfType<LevelManager>();
-            //gameManager = FindObjectOfType<GameManager>();
             if (pausePanel)
             {
                 pausePanel.SetActive(false);
@@ -146,6 +150,30 @@ public class UIManager : MonoBehaviour
             if (levelComplete)
             {
                 PanelAnimation(levelComplete);
+
+                totalDiamondTxt.text = "You collected "+gameManager.diamondCount+" diamonds!";
+                
+                if (gameManager.diamondCount == 3)
+                {
+                    praiseTxt.text = "Perfect!";
+                }
+                else if (gameManager.diamondCount == 2)
+                {
+                    praiseTxt.text = "Well Done!";
+                }
+                else if (gameManager.diamondCount == 1)
+                {
+                    praiseTxt.text = "Great!";
+                }
+                else if (gameManager.diamondCount == 0)
+                {
+                    praiseTxt.text = "Good!";
+                    totalDiamondTxt.text = "But you didn't collect any diamonds!";
+                }
+                else
+                {
+                    return;
+                }
             }
         }
 

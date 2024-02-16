@@ -170,10 +170,6 @@ public class UIManager : MonoBehaviour
                     praiseTxt.text = "Good!";
                     totalDiamondTxt.text = "But you didn't collect any diamonds!";
                 }
-                else
-                {
-                    return;
-                }
             }
         }
 
@@ -197,13 +193,31 @@ public class UIManager : MonoBehaviour
             {
                 buttons[i].interactable = false;
                 buttons[i].transform.GetChild(0).localScale = new Vector3(0,0,0);
-                buttons[i].transform.GetChild(1).localScale = new Vector3(1,1,1);
+                buttons[i].transform.GetChild(1).localScale = new Vector3(0.6f, 0.6f, 0.6f);
+                for (int y = 0; y < 3; y++)
+                {
+                    buttons[i].transform.GetChild(y+2).localScale = new Vector3(0, 0, 0);
+                }
             }
             for (int i = 0; i < unlockedlevel; i++)
             {
                 buttons[i].interactable = true;
-                buttons[i].transform.GetChild(0).localScale = new Vector3(1, 1, 1);
+                buttons[i].transform.GetChild(0).localScale = new Vector3(0.9f,0.9f,0.9f);
                 buttons[i].transform.GetChild(1).localScale = new Vector3(0, 0, 0);
+                int diamonds = PlayerPrefs.GetInt("Diamonds"+(i+1).ToString(), 0);
+                for (int y = 0; y < diamonds; y++)
+                {
+                    buttons[i].transform.GetChild(y+2).localScale = new Vector3(1, 1, 1);
+                }
+            }
+        }
+
+        private void ShowCollectedDiamonds()
+        {
+            int collectedDiamond = PlayerPrefs.GetInt("CollectedDiamonds", 0);
+            for (int i = 0; i < 3; i++)
+            {
+                buttons[i].transform.GetChild(i).localScale = new Vector3(1, 1, 1);
             }
         }
         public void LevelSelect(int level)

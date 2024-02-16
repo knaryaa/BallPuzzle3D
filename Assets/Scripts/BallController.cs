@@ -35,13 +35,21 @@ public class BallController : MonoBehaviour
     void Update()
     {
         //SkipLevel();
-        if (!isMoving && pressTimer <= 0.20f)
+        if (!isMoving && pressTimer <= 0.05f)
         {
             pressTimer += Time.deltaTime;
             isMoving = false;
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!isMoving)
+        {
+            Move();
+        }
+        
+    }
     private void SkipLevel()
     {
         if (Input.GetKeyDown(KeyCode.C))
@@ -54,21 +62,12 @@ public class BallController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-        if (!isMoving)
-        {
-            Move();
-        }
-        
-    }
-
     void Move()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
-        if ((horizontalInput == 0 || verticalInput == 0) && pressTimer >= 0.20f)
+        if ((horizontalInput == 0 || verticalInput == 0) && pressTimer >= 0.05f)
         {
             Vector3 moveDirection = new Vector3(horizontalInput,0, verticalInput).normalized;
             Vector3 moveVelocity = moveDirection * moveSpeed;
@@ -102,10 +101,17 @@ public class BallController : MonoBehaviour
             //_UIManager.LevelFinish();
             enabled = false;
             int unlockedlevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+            int currentLevel = levelManager.levelNumber;
+            int diamonds = PlayerPrefs.GetInt("Diamonds"+currentLevel.ToString(), 0);
             if (unlockedlevel < levelManager.levelNumber+1)
             {
                 int unlockedLevel = levelManager.levelNumber + 1;
                 PlayerPrefs.SetInt("UnlockedLevel", unlockedLevel);
+                PlayerPrefs.Save();
+            }
+            if (diamonds < gameManager.diamondCount)
+            {
+                PlayerPrefs.SetInt("Diamonds"+levelManager.levelNumber.ToString(), gameManager.diamondCount);
                 PlayerPrefs.Save();
             }
             

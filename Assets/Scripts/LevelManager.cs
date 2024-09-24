@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -15,13 +16,18 @@ public class LevelManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI levelTxt;
     //public int i;
     
-    public void Start()
+    public void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        //actNumber = 1;
-        //LoadLevel();
-        //SetLevelText();
+        
     }
+
+    // private void Start()
+    // {
+    //      actNumber = 1;
+    //      LoadLevel();
+    //      SetLevelText();
+    // }
 
     public void SetLevelText()
     {

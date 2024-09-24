@@ -7,7 +7,7 @@ public class DiamondDetector : MonoBehaviour
 {
     public GameManager gameManager;
 
-    private void Start()
+    private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
     }

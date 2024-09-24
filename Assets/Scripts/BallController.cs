@@ -17,18 +17,22 @@ public class BallController : MonoBehaviour
     public Vector3 diamondMoveLocation;
 
     public float pressTimer;
-    
 
-    void Start()
+    private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         levelManager = FindObjectOfType<LevelManager>();
         _UIManager = FindObjectOfType<UIManager>();
+    }
+
+    void Start()
+    {
+        
         rb = GetComponent<Rigidbody>();
         
         originalScale = gameObject.transform.localScale;
         
-        diamondMoveLocation = new Vector3(9.5f, 0.7f, 17f);
+        diamondMoveLocation = new Vector3(5.5f, 0f, 18f);
         pressTimer = 0;
     }
 

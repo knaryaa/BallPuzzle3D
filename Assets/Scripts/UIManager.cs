@@ -35,14 +35,14 @@ public class UIManager : MonoBehaviour
 
         private void Awake()
         {
+            gameManager = FindObjectOfType<GameManager>();
+            levelManager = FindObjectOfType<LevelManager>();
             ButtonsToArray();
             UnlockLevel();
         }
 
         private void Start()
         {
-            gameManager = FindObjectOfType<GameManager>();
-            levelManager = FindObjectOfType<LevelManager>();
             if (pausePanel)
             {
                 pausePanel.SetActive(false);

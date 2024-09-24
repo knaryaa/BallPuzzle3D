@@ -3,7 +3,12 @@ guid: 0ebb448b758409b498dda576fa937fc1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Orchid
+    second: {fileID: 2100000, guid: 6882434e34bb1314da04fec64557d7cd, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -30,10 +30,8 @@ MonoBehaviour:
   obstacleRotation:
   - {x: -0, y: 0, z: 0}
   - {x: -0, y: 0, z: 0}
-  rotateButton:
-  - {fileID: 3076970703366941274, guid: 3a9293f9604a59643a09080b33989cf9, type: 3}
-  rotateButtonLocation:
-  - {x: -2, y: -0.45, z: 0}
+  rotateButton: []
+  rotateButtonLocation: []
   diamond: {fileID: 7588200626282732244, guid: 9a846f7843e529d4da945d0a70b92af7, type: 3}
   diamondLocation:
   - {x: 6, y: 0.7, z: 8}

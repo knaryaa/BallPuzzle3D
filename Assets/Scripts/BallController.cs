@@ -6,17 +6,17 @@ using TMPro;
 
 public class BallController : MonoBehaviour
 {
-    public  UIManager _UIManager;
-    public LevelManager levelManager;
-    public GameManager gameManager;
+    private UIManager _UIManager;
+    private LevelManager levelManager;
+    private GameManager gameManager;
     
-    public float moveSpeed = 5f; // Adjust the speed as needed
     private Rigidbody rb;
-    public bool isMoving = false;
-    public Vector3 originalScale;
-    public Vector3 diamondMoveLocation;
+    [SerializeField] private float moveSpeed = 5f; // Adjust the speed as needed
+    [SerializeField] private bool isMoving = false;
+    [SerializeField] private Vector3 originalScale;
+    [SerializeField] private Vector3 diamondMoveLocation;
 
-    public float pressTimer;
+    [SerializeField] private float pressTimer;
 
     private void Awake()
     {

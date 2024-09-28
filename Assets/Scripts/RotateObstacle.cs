@@ -6,9 +6,9 @@ using DG.Tweening;
 
 public class RotateObstacle : MonoBehaviour
 {
-    [SerializeField] Transform rotateObstacle;
-    [SerializeField] GameObject rotateButton;
-    public Vector3 rotateAngle = new Vector3(0,90,0);
+    [SerializeField] private Transform rotateObstacle;
+    [SerializeField] private GameObject rotateButton;
+    [SerializeField] private Vector3 rotateAngle = new Vector3(0,90,0);
     private Vector3 closed;
 
     private void Start()
@@ -21,7 +21,7 @@ public class RotateObstacle : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Ball") && rotateObstacle)
         {
-            rotateObstacle.DORotate(rotateAngle, 0.2f);
+            rotateObstacle.DORotate(rotateAngle, 0.6f);
             rotateButton.transform.DOLocalMove(closed, 0.2f);
         }
     }

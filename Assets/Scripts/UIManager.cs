@@ -9,29 +9,29 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-        public bool isGameStopped = false;
+        [SerializeField] private bool isGameStopped = false;
     
-        public GameObject pausePanel;
-        public GameObject optionsPanel;
-        public GameObject mainMenu;
-        public GameObject startLevel;
-        public GameObject gameUI;
-        public GameObject levelComplete;
-        public GameObject levelSelectMenu;
-        public GameObject screenFade;
+        [SerializeField] private GameObject pausePanel;
+        [SerializeField] private GameObject optionsPanel;
+        [SerializeField] private GameObject mainMenu;
+        [SerializeField] private GameObject startLevel;
+        [SerializeField] private GameObject gameUI;
+        [SerializeField] private GameObject levelComplete;
+        [SerializeField] private GameObject levelSelectMenu;
+        [SerializeField] private GameObject screenFade;
 
-        public float nextLevelTimer = 0;
+        [SerializeField] private float nextLevelTimer = 0;
         
         //public RectTransform[] actMenu;
         
         private LevelManager levelManager;
-        public GameManager gameManager;
+        private GameManager gameManager;
 
-        public Button[] buttons;
-        public GameObject[] levelButtons;
+        [SerializeField] private Button[] buttons;
+        [SerializeField] private GameObject[] levelButtons;
 
-        public TextMeshProUGUI praiseTxt;
-        public TextMeshProUGUI totalDiamondTxt;
+        [SerializeField] private TextMeshProUGUI praiseTxt;
+        [SerializeField] private TextMeshProUGUI totalDiamondTxt;
 
         private void Awake()
         {

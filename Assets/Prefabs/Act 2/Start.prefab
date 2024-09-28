@@ -204,7 +204,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8184198238763306240, guid: f08fb19c554dc1340946711f1aecd1e8, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8854019981146134458, guid: f08fb19c554dc1340946711f1aecd1e8, type: 3}
       propertyPath: m_LocalScale.x
@@ -326,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572221502760966870, guid: 8d87752881d218445bf881a7648ea9a1, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -400,7 +400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3572221502760966870, guid: 8d87752881d218445bf881a7648ea9a1, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -426,7 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8184198238763306240, guid: f08fb19c554dc1340946711f1aecd1e8, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 8854019981146134458, guid: f08fb19c554dc1340946711f1aecd1e8, type: 3}
       propertyPath: m_LocalScale.x

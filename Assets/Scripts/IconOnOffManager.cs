@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class IconOnOffManager : MonoBehaviour
 {
-    public Sprite openIcon;
-    public Sprite closedIcon;
+    [SerializeField] private Sprite openIcon;
+    [SerializeField] private Sprite closedIcon;
 
     private Image iconImg;
 
-    public bool defaultIconState;
+    [SerializeField] private bool defaultIconState;
     private bool iconState;
 
     private void Start()

@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class LevelCreator : MonoBehaviour
 {
-    public Levels currentLevel;
+    [SerializeField] private Levels currentLevel;
 
     private void Awake()
     {

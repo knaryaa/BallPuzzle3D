@@ -2306,7 +2306,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 56847a435d96cd446bfc57d1fdac4ba9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6620,7 +6620,6 @@ MonoBehaviour:
   levelNumber: 5
   levelUINumber: 0
   actNumber: 1
-  gameManager: {fileID: 0}
   levelTxt: {fileID: 173834366}
 --- !u!4 &543971103
 Transform:
@@ -7557,7 +7556,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68a59c585fc0e004ead5f964d29b5ad8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8211,7 +8210,6 @@ MonoBehaviour:
   levelSelectMenu: {fileID: 600440050}
   screenFade: {fileID: 2040211483}
   nextLevelTimer: 0
-  gameManager: {fileID: 0}
   buttons: []
   levelButtons:
   - {fileID: 333434361}
@@ -13622,7 +13620,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6ec6079afa3303a4280edeac49f3014e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -21765,9 +21763,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 734989672}
     m_Modifications:
+    - target: {fileID: 1147417639544289653, guid: 1b4456f08c409204a88ebd3ff7424b12, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3174520495510967820, guid: 1b4456f08c409204a88ebd3ff7424b12, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     - target: {fileID: 3290761499136665032, guid: 1b4456f08c409204a88ebd3ff7424b12, type: 3}
       propertyPath: m_Name
       value: Start
+      objectReference: {fileID: 0}
+    - target: {fileID: 5368593066887220848, guid: 1b4456f08c409204a88ebd3ff7424b12, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     - target: {fileID: 5759357587916852226, guid: 1b4456f08c409204a88ebd3ff7424b12, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21808,6 +21818,10 @@ PrefabInstance:
     - target: {fileID: 5759357587916852226, guid: 1b4456f08c409204a88ebd3ff7424b12, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041046077008082933, guid: 1b4456f08c409204a88ebd3ff7424b12, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

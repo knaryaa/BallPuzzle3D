@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DiamondDetector : MonoBehaviour
 {
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     private void Awake()
     {

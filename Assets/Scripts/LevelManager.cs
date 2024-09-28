@@ -5,13 +5,13 @@ using UnityEngine.Serialization;
 
 public class LevelManager : MonoBehaviour
 {
-    public Levels[] levels;
+    [SerializeField] private Levels[] levels;
     public int levelNumber;
-    public int levelUINumber;
-    public int actNumber;
+    [SerializeField] private int levelUINumber;
+    [SerializeField] private int actNumber;
 
     
-    public GameManager gameManager;
+    private GameManager gameManager;
 
     [SerializeField] TextMeshProUGUI levelTxt;
     //public int i;

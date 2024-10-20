@@ -9,6 +9,7 @@ public class BallController : MonoBehaviour
     private UIManager _UIManager;
     private LevelManager levelManager;
     private GameManager gameManager;
+    private Teleporter teleporter;
     
     private Rigidbody rb;
     [SerializeField] private float moveSpeed = 5f; // Adjust the speed as needed
@@ -18,11 +19,14 @@ public class BallController : MonoBehaviour
 
     [SerializeField] private float pressTimer;
 
+    private Vector3 moveDirection;
+
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
         levelManager = FindObjectOfType<LevelManager>();
         _UIManager = FindObjectOfType<UIManager>();
+        
     }
 
     void Start()
@@ -73,7 +77,7 @@ public class BallController : MonoBehaviour
 
         if ((horizontalInput == 0 || verticalInput == 0) && pressTimer >= 0.05f)
         {
-            Vector3 moveDirection = new Vector3(horizontalInput,0, verticalInput).normalized;
+            moveDirection = new Vector3(horizontalInput,0, verticalInput).normalized;
             Vector3 moveVelocity = moveDirection * moveSpeed;
             
             rb.velocity = moveVelocity;
@@ -97,6 +101,20 @@ public class BallController : MonoBehaviour
             
             collider.gameObject.transform.DOMove(diamondMoveLocation, 1f);
         
+        }
+
+        if (collider.gameObject.CompareTag("Portal1"))
+        {
+            teleporter = collider.GetComponentInParent<Teleporter>();
+
+            transform.position = teleporter.portal2.position + moveDirection * 1;
+        }
+        
+        if (collider.gameObject.CompareTag("Portal2"))
+        {
+            teleporter = collider.GetComponentInParent<Teleporter>();
+
+            transform.position = teleporter.portal1.position + moveDirection * 1;
         }
 
         if (collider.gameObject.CompareTag("Finish"))

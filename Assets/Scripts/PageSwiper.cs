@@ -26,7 +26,9 @@ public class PageSwiper : MonoBehaviour, IDragHandler, IEndDragHandler
     public void OnEndDrag(PointerEventData data)
     {
         float percentage = (data.pressPosition.x - data.position.x) / 880; 
-        Vector3 minValue = new Vector3(-1220, 0, 0);
+        // Change minValue if you add more levels
+        Vector3 minValue = new Vector3(-2980, 0, 0);
+        // Do not change this number
         Vector3 maxValue = new Vector3(540, 0, 0);
         if(Mathf.Abs(percentage) >= percentThreshold)
         {

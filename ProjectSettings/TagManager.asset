@@ -9,6 +9,9 @@ TagManager:
   - Start
   - Ball
   - Button
+  - Portal1
+  - Portal2
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -16,9 +19,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Button
+  - Ball
+  - Diamond
   - 
   - 
   - 

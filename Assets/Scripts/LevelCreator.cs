@@ -25,6 +25,7 @@ public class LevelCreator : MonoBehaviour
         currentLevel.obstacleRotation.Clear();
         currentLevel.diamondLocation.Clear();
         currentLevel.rotateButtonLocation.Clear();
+        currentLevel.portalLocation.Clear();
         
         
         var childCount = transform.childCount;
@@ -45,6 +46,10 @@ public class LevelCreator : MonoBehaviour
             if (child.CompareTag("Button"))
             {
                 currentLevel.rotateButtonLocation.Add(child.transform.position);
+            }
+            if (child.CompareTag("Portal"))
+            {
+                currentLevel.portalLocation.Add(child.transform.position);
             }
             if (child.CompareTag("Start"))
             {
@@ -98,9 +103,17 @@ public class LevelCreator : MonoBehaviour
                 y++;
             }
         }
+        y = 0;
+        for (int i = 0; i < currentLevel.portal.Count; i++)
+        {
+            if (currentLevel.portal[i])
+            {
+                PrefabUtility.InstantiatePrefab(currentLevel.portal[i], transform);
+                currentLevel.portal[i].transform.position = currentLevel.portalLocation[y];
+                y++;
+            }
+        }
         
-        
-
         if (currentLevel.start)
         {
             PrefabUtility.InstantiatePrefab(currentLevel.start, transform);

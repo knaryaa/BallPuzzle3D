@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DiamondsCollect_0
+      name: DiamondsCollected_Green
       rect:
         serializedVersion: 2
         x: 41
@@ -144,7 +144,7 @@ TextureImporter:
         width: 330
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,7 +157,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiamondsCollect_1
+      name: DiamondsCollected_Teal
       rect:
         serializedVersion: 2
         x: 41
@@ -165,7 +165,7 @@ TextureImporter:
         width: 330
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -178,7 +178,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiamondsCollect_2
+      name: DiamondsCollected_Purple
       rect:
         serializedVersion: 2
         x: 41
@@ -186,7 +186,7 @@ TextureImporter:
         width: 330
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -199,7 +199,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiamondsCollect_3
+      name: DiamondsCollected_Orange
       rect:
         serializedVersion: 2
         x: 41
@@ -207,7 +207,7 @@ TextureImporter:
         width: 330
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -220,7 +220,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DiamondsCollect_4
+      name: DiamondsCollected_Pin
       rect:
         serializedVersion: 2
         x: 41
@@ -228,7 +228,7 @@ TextureImporter:
         width: 330
         height: 140
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,11 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      DiamondsCollect_0: 1937176977
-      DiamondsCollect_1: -621630145
-      DiamondsCollect_2: 1052767578
-      DiamondsCollect_3: 815475741
-      DiamondsCollect_4: -37544985
+      DiamondsCollected_Green: 1937176977
+      DiamondsCollected_Orange: 815475741
+      DiamondsCollected_Pin: -37544985
+      DiamondsCollected_Purple: 1052767578
+      DiamondsCollected_Teal: -621630145
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

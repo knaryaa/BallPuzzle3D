@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4601854238569413034
+--- !u!1 &8338287887673088780
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7839023489817112663}
-  - component: {fileID: 9005369464188541454}
-  - component: {fileID: 8727115992217553279}
+  - component: {fileID: 412659121311568525}
+  - component: {fileID: 3093928254549671430}
+  - component: {fileID: 1082224253910277848}
   m_Layer: 5
-  m_Name: act1levelNumberTxt
+  m_Name: act2levelNumberTxt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &7839023489817112663
+--- !u!224 &412659121311568525
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4601854238569413034}
+  m_GameObject: {fileID: 8338287887673088780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.9, y: 0.9, z: 0.9}
@@ -37,21 +37,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &9005369464188541454
+--- !u!222 &3093928254549671430
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4601854238569413034}
+  m_GameObject: {fileID: 8338287887673088780}
   m_CullTransparentMesh: 1
---- !u!114 &8727115992217553279
+--- !u!114 &1082224253910277848
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4601854238569413034}
+  m_GameObject: {fileID: 8338287887673088780}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -74,8 +74,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283807868
-  m_fontColor: {r: 0.48627454, g: 0.72156864, b: 0.33333334, a: 1}
+    rgba: 4291740214
+  m_fontColor: {r: 0.21176472, g: 0.7607844, b: 0.8078432, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

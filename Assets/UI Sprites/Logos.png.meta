@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b03301a0e7f28494d908e094e8ed14e0
+guid: bd0e55f4c8ed28b4b8b9a53b794e3f5a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -136,13 +136,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Panel_Green
+      name: Logo_Green
       rect:
         serializedVersion: 2
-        x: 64
-        y: 91
-        width: 978
-        height: 1259
+        x: 10
+        y: 2479
+        width: 1061
+        height: 503
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e77d13b027e42d44ab851bd2bbb6bee
-      internalID: 542684210
+      spriteID: 5a3a6c4f6569660448643acdacdccc6d
+      internalID: -976859575
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Panel_Blue
+      name: Logo_Blue
       rect:
         serializedVersion: 2
-        x: 1122
-        y: 91
-        width: 978
-        height: 1259
+        x: 10
+        y: 1835
+        width: 1061
+        height: 502
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: facdfb9c65b0e5543adbe2b6080b91b8
-      internalID: 121464298
+      spriteID: 4a04b541beef8114a8af82320f8018c4
+      internalID: 2135621653
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Panel_Purple
+      name: Logo_Purple
       rect:
         serializedVersion: 2
-        x: 2173
-        y: 91
-        width: 975
-        height: 1259
+        x: 10
+        y: 1242
+        width: 1061
+        height: 503
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5db6c0c8ef0a1ce4b8d0db7c90be91ca
-      internalID: 782600129
+      spriteID: 31d8708e94082ce4f81be5e9d05c3f6a
+      internalID: -816145384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Panel_Orange
+      name: Logo_Orange
       rect:
         serializedVersion: 2
-        x: 3215
-        y: 91
-        width: 977
-        height: 1259
+        x: 10
+        y: 644
+        width: 1061
+        height: 502
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,20 +213,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a46c1767ea714d64190a0dc5a445499e
-      internalID: 962358723
+      spriteID: 7e15412a8e0772c418a8dc96a931a10e
+      internalID: -1099428444
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Panel_Pink
+      name: Logo_Pink
       rect:
         serializedVersion: 2
-        x: 4256
-        y: 91
-        width: 975
-        height: 1259
+        x: 10
+        y: 40
+        width: 1061
+        height: 503
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,8 +234,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3697987e9941b64095626bc75089913
-      internalID: 847804645
+      spriteID: b0ab9ad409f6456478b0f69633c57f64
+      internalID: 1649481783
       vertices: []
       indices: 
       edges: []
@@ -243,7 +243,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: b5249857452ff5e4e93793a9b04b6062
+    spriteID: 206072b954f2a6544acace6be2d17e59
     internalID: 0
     vertices: []
     indices: 
@@ -251,11 +251,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Panel_Blue: 121464298
-      Panel_Green: 542684210
-      Panel_Orange: 962358723
-      Panel_Pink: 847804645
-      Panel_Purple: 782600129
+      Logo_Blue: 2135621653
+      Logo_Green: -976859575
+      Logo_Orange: -1099428444
+      Logo_Pink: 1649481783
+      Logo_Purple: -816145384
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

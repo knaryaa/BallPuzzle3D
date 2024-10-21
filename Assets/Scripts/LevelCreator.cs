@@ -10,11 +10,6 @@ public class LevelCreator : MonoBehaviour
 {
     [SerializeField] private Levels currentLevel;
 
-    private void Awake()
-    {
-        //gameObject.SetActive(false);
-    }
-
     [Button]
     public void SaveLevel()
     {
@@ -25,7 +20,12 @@ public class LevelCreator : MonoBehaviour
         currentLevel.obstacleRotation.Clear();
         currentLevel.diamondLocation.Clear();
         currentLevel.rotateButtonLocation.Clear();
+        currentLevel.buttonLocation.Clear();
+        currentLevel.rotateButton.Clear();
         currentLevel.portalLocation.Clear();
+        currentLevel.portal1Location.Clear();
+        currentLevel.portal2Location.Clear();
+        currentLevel.portal.Clear();
         
         
         var childCount = transform.childCount;
@@ -46,10 +46,15 @@ public class LevelCreator : MonoBehaviour
             if (child.CompareTag("Button"))
             {
                 currentLevel.rotateButtonLocation.Add(child.transform.position);
+                currentLevel.buttonLocation.Add(child.transform.GetChild(0).transform.position);
+                currentLevel.rotateButton.Add(PrefabUtility.GetCorrespondingObjectFromSource(child.gameObject));
             }
             if (child.CompareTag("Portal"))
             {
                 currentLevel.portalLocation.Add(child.transform.position);
+                currentLevel.portal1Location.Add(child.transform.GetChild(0).transform.position);
+                currentLevel.portal2Location.Add(child.transform.GetChild(1).transform.position);
+                currentLevel.portal.Add(PrefabUtility.GetCorrespondingObjectFromSource(child.gameObject));
             }
             if (child.CompareTag("Start"))
             {
@@ -72,7 +77,6 @@ public class LevelCreator : MonoBehaviour
     {
         DeleteLevel();
         
-        //Sahnedeki objeleri kaydeder
         int y = 0;
         for (int i = 0; i < currentLevel.obstacle.Count; i++)
         {
@@ -100,20 +104,24 @@ public class LevelCreator : MonoBehaviour
             {
                 PrefabUtility.InstantiatePrefab(currentLevel.rotateButton[i], transform);
                 currentLevel.rotateButton[i].transform.position = currentLevel.rotateButtonLocation[y];
+                currentLevel.rotateButton[i].transform.GetChild(0).transform.position = currentLevel.buttonLocation[i];
                 y++;
             }
         }
+
         y = 0;
-        for (int i = 0; i < currentLevel.portal.Count; i++)
+        for (int i = 0; i < currentLevel.portalLocation.Count; i++)
         {
             if (currentLevel.portal[i])
             {
                 PrefabUtility.InstantiatePrefab(currentLevel.portal[i], transform);
                 currentLevel.portal[i].transform.position = currentLevel.portalLocation[y];
+                currentLevel.portal[i].transform.GetChild(0).transform.position = currentLevel.portal1Location[i];
+                currentLevel.portal[i].transform.GetChild(1).transform.position = currentLevel.portal2Location[i];
                 y++;
             }
         }
-        
+    
         if (currentLevel.start)
         {
             PrefabUtility.InstantiatePrefab(currentLevel.start, transform);

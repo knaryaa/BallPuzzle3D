@@ -151,7 +151,7 @@ public class UIManager : MonoBehaviour
             {
                 PanelAnimation(levelComplete);
 
-                totalDiamondTxt.text = "You collected "+gameManager.diamondCount+" diamonds!";
+                totalDiamondTxt.text = "You Have Collected "+gameManager.diamondCount+" Diamonds!";
                 
                 if (gameManager.diamondCount == 3)
                 {
@@ -168,7 +168,7 @@ public class UIManager : MonoBehaviour
                 else if (gameManager.diamondCount == 0)
                 {
                     praiseTxt.text = "Good!";
-                    totalDiamondTxt.text = "But you didn't collect any diamonds!";
+                    totalDiamondTxt.text = "But You Didn't Collect Any Diamonds :(";
                 }
             }
         }
